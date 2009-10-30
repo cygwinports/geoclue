@@ -1,0 +1,15 @@
+--- origsrc/geoclue-0.11.1/geoclue/Makefile.am	2008-04-25 08:39:19.000000000 -0500
++++ src/geoclue-0.11.1/geoclue/Makefile.am	2009-10-30 09:50:20.172984000 -0500
+@@ -47,6 +47,12 @@ libgeoclue_la_CFLAGS =		\
+ 	-I$(top_srcdir)		\
+ 	-I$(top_builddir)	\
+ 	$(GEOCLUE_CFLAGS)
++
++libgeoclue_la_LDFLAGS =		\
++	-no-undefined
++
++libgeoclue_la_LIBADD =		\
++	$(GEOCLUE_LIBS)
+ 	
+ geoclue_headers =		\
+ 	gc-iface-address.h	\
