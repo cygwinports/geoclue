@@ -1,0 +1,32 @@
+--- origsrc/geoclue-0.12/docs/reference/Makefile.am	2010-03-25 15:43:10.000000000 -0500
++++ src/geoclue-0.12/docs/reference/Makefile.am	2011-04-07 03:11:50.674066800 -0500
+@@ -94,7 +94,7 @@ expand_content_files=
+ # signals and properties.
+ # e.g. INCLUDES=-I$(top_srcdir) -I$(top_builddir) $(GTK_DEBUG_FLAGS)
+ # e.g. GTKDOC_LIBS=$(top_builddir)/gtk/$(gtktargetlib)
+-INCLUDES=-I$(top_srcdir) $(GEOCLUE_CFLAGS)
++INCLUDES=-I$(top_builddir) -I$(top_srcdir) $(GEOCLUE_CFLAGS)
+ GTKDOC_LIBS=$(top_builddir)/geoclue/libgeoclue.la $(GEOCLUE_LIBS)
+ 
+ # This includes the standard gtk-doc make rules, copied by gtkdocize.
+--- origsrc/geoclue-0.12/example/Makefile.am	2010-03-25 15:43:10.000000000 -0500
++++ src/geoclue-0.12/example/Makefile.am	2011-04-07 02:59:57.043947300 -0500
+@@ -17,7 +17,7 @@ revgeocode_example_SOURCES = revgeocode-
+ master_example_SOURCES = master-example.c
+ master_pos_example_SOURCES = master-pos-example.c
+ 
+-AM_CFLAGS = $(GEOCLUE_CFLAGS)
++AM_CFLAGS = -I$(top_srcdir) $(GEOCLUE_CFLAGS)
+ LDADD = \
+ 	$(GEOCLUE_LIBS) \
+     $(top_builddir)/geoclue/libgeoclue.la
+--- origsrc/geoclue-0.12/test/Makefile.am	2010-03-25 15:43:10.000000000 -0500
++++ src/geoclue-0.12/test/Makefile.am	2011-04-07 03:00:12.294383800 -0500
+@@ -9,6 +9,7 @@ geoclue_test_gui_LDADD = \
+ 
+ geoclue_test_gui_CFLAGS= \
+ 	-DGEOCLUE_PROVIDERS_DIR=\""$(datadir)/geoclue-providers"\" \
++	-I$(top_srcdir) \
+ 	$(GTK_CFLAGS) \
+ 	$(GEOCLUE_CFLAGS)
+ 
