@@ -1,7 +1,0 @@
-category: Net
-requires: libgeoclue0 libdbus-glib_1-devel libglib2.0-devel libxml2-devel
-external-source: geoclue
-sdesc: "D-Bus geoinformation service library (development)"
-ldesc: "Geoclue is a modular geoinformation service built on top of the 
-D-Bus messaging system. The goal of the Geoclue project is to make 
-creating location-aware applications as simple as possible."
