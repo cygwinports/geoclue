@@ -2,7 +2,7 @@ inherit gnome2
 
 NAME="geoclue"
 VERSION=0.12.99
-RELEASE=1
+RELEASE=2
 CATEGORY="Net"
 SUMMARY="D-Bus geoinformation service"
 DESCRIPTION="Geoclue is a modular geoinformation service built on top of the
@@ -13,9 +13,15 @@ SRC_URI="http://cgit.freedesktop.org/geoclue/snapshot/geoclue-${VERSION}.tar.bz2
 PATCH_URI="0.11.1-no-undefined.patch
            0.12-vpath.patch"
 
-PKG_NAMES="${NAME} lib${NAME}0 lib${NAME}-devel"
+PKG_NAMES="${NAME} lib${NAME}0 lib${NAME}-devel lib${NAME}-doc"
 geoclue_CONTENTS="--exclude=gtk-doc etc/ usr/libexec/ usr/share/"
+libgeoclue0_CATEGORY="Doc"
+libgeoclue0_SUMMARY="${SUMMARY} client library"
 libgeoclue0_CONTENTS="usr/bin/cyggeoclue-0.dll"
-libgeoclue_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+libgeoclue_devel_CATEGORY="Doc"
+libgeoclue_devel_SUMMARY=${libgeoclue0_SUMMARY}
+libgeoclue_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"
+libgeoclue_doc_CATEGORY="Doc"
+libgeoclue_doc_CONTENTS="usr/share/gtk-doc/"
 
 WANT_AUTOMAKE=1.12
